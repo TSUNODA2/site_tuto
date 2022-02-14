@@ -174,4 +174,8 @@
 .s_button_add:hover {
     background: #002153;
 }
+
+.error {
+    color: white;
+
 /*cours tableau add*/

@@ -83,6 +83,33 @@ require_once 'config/bdd.php';
 
         </table>
 
+        <?php
+        if(isset($_GET['cours_err']))
+        {
+            $err = htmlspecialchars($_GET['cours_err']);
+
+            switch($err)
+            {
+                case 'success':
+                    ?>
+                    <div class="error">
+                        <strong>succes</strong> Votre tuto a etait cree !
+                    </div>
+                    <?php
+                    break;
+
+                case 'cours':
+                    ?>
+                    <div class="error">
+                        <strong>Erreur</strong> entrer tout les champs !
+                    </div>
+                    <?php
+                    break;
+                
+            }
+        }
+        ?>
+
     </form>
     </main>
     </body>

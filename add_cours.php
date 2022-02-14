@@ -9,11 +9,7 @@ if(!empty($s_titre) && !empty($s_description)) {
     $s_insertCours = $bdd->prepare("INSERT INTO ajout_cours(titre, dsc) VALUES(?, ?)");
     $s_insertCours->execute([$s_titre, $s_description]);
 
-    $success = "Votre tuto a etais ajouter !";
-    header("Location: admin_cours.php?error=$success");
+    header("Location: admin_cours.php?cours_err=success");
 
-}else{
-    $erreur = "Entrer tout les champs !";
-    header("Location: admin_cours.php?error=$erreur");
-}
+}else header('Location: admin_cours.php?cours_err=cours');
 ?>
