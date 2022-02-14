@@ -1,12 +1,3 @@
-<?php 
-require_once 'config/bdd.php';
-
-if(isset($_POST['sned']))
-{
-    if()
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,18 +52,20 @@ if(isset($_POST['sned']))
 
         <br>
 
+        <form action="add_cours.php" method="POST" >
+
         <table class="s_table_cours_add">
             
          <tr class="s_table_top_add">
-             <th><input class="s_enter_train" type="text" size="100%" placeholder="Entrer le titre de votre exercice" name="" id=""></th>
+             <th><input class="s_enter_train" type="text" size="100%" placeholder="Entrer le titre de votre exercice" name="titre" id=""></th>
          </tr>
 
          <tr class="s_table_mid_add">
-            <th><textarea class="s_desc_cours" name="description" id="description" placeholder="Entrer la description de votre poste" cols="80" rows="10"></textarea></th>
-            <th><input class="s_button_add" type="submit" value="add"></th>
+            <th><textarea class="s_desc_cours" name="dsc" id="description" placeholder="Entrer la description de votre poste" cols="80" rows="10"></textarea></th>
+            <th><input class="s_button_add" type="submit" name="send"></th>
          </tr>
 
         </table>
-
+    </form>
     </main>
     </body>
