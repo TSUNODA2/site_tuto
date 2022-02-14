@@ -1,3 +1,8 @@
+<?php 
+session_start();
+require_once 'config/bdd.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,21 +35,30 @@
 
     <main class="s_admin_cours">
 
-        <table class="s_table_cours_list">
+    <?php 
+    $s_recupCours = $bdd->query('SELECT id_cours, titre, dsc FROM ajout_cours');
+    while($s_cours = $s_recupCours->fetch()){
+        ?>
+         <table class="s_table_cours_list">
 
             <tr class="s_table_top">
-                <th>Titre</th>
+                <th>titre</th>
                 <th>Description</th>
-                <th>suppression</th>
+                <th></th>
             </tr>
 
             <tr class="s_table_mid">
-                <th>Theoreme</th>
-                <th>lorenfkjnsdjfnj ksdjfhkjsdfhjehfufefhjk shfjehf sjhdjfk hef</th>
-                <th><a href="#" class="s_close_button"><img src="./pictures_admin/close.png" width="20%" alt=""></a></th>
+                <th> <?= $s_cours['titre'] ?> </th>
+                <th> <?= $s_cours['dsc'] ?> </th>
+                <th><a href="delete_cours.php?id=<?= $s_cours['id_cours'] ?>" class="s_close_button"><img src="./pictures_admin/close.png" width="20%" alt=""></a></th>
             </tr>
 
         </table>
+        <?php
+    }
+    ?>
+
+       
 
         <br>
 
