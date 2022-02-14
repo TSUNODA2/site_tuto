@@ -35,30 +35,32 @@ require_once 'config/bdd.php';
 
     <main class="s_admin_cours">
 
-    <?php 
-    $s_recupCours = $bdd->query('SELECT id_cours, titre, dsc FROM ajout_cours');
-    while($s_cours = $s_recupCours->fetch()){
-        ?>
+   
          <table class="s_table_cours_list">
-
+     
             <tr class="s_table_top">
                 <th>titre</th>
                 <th>Description</th>
                 <th></th>
             </tr>
 
+      <?php 
+       $s_recupCours = $bdd->query('SELECT * FROM ajout_cours');
+       while($s_cours = $s_recupCours->fetch()){
+        ?>
             <tr class="s_table_mid">
+
                 <th> <?= $s_cours['titre'] ?> </th>
                 <th> <?= $s_cours['dsc'] ?> </th>
-                <th><a href="delete_cours.php?id=<?= $s_cours['id_cours'] ?>" class="s_close_button"><img src="./pictures_admin/close.png" width="20%" alt=""></a></th>
+                <th><a href="delete2.php?id_2=<?= $s_cours['id_2']; ?>" class="s_close_button"><img src="./pictures_admin/close.png" width="30%" alt=""></a></th>
+            
             </tr>
+        <?php
+            }
+            ?>
 
         </table>
-        <?php
-    }
-    ?>
-
-       
+        
 
         <br>
 
@@ -66,9 +68,9 @@ require_once 'config/bdd.php';
 
         <br>
 
-        <form action="add_cours.php" method="POST" >
+        <form class="s_table_cours_add" action="add_cours.php" method="POST" >
 
-        <table class="s_table_cours_add">
+        <table>
             
          <tr class="s_table_top_add">
              <th><input class="s_enter_train" type="text" size="100%" placeholder="Entrer le titre de votre exercice" name="titre" id=""></th>
@@ -80,6 +82,7 @@ require_once 'config/bdd.php';
          </tr>
 
         </table>
+
     </form>
     </main>
     </body>

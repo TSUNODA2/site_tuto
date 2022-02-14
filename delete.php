@@ -11,12 +11,13 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
         $s_suppUser = $bdd->prepare('DELETE FROM membres WHERE id= ?');
         $s_suppUser->execute(array($s_getId));
 
-        header('location: admin_utilisateur.php');
+        header('Location: admin_utilisateur.php');
     }else{
         echo "aucun utilisateur n'a ete trouve !";
     }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
