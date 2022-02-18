@@ -25,7 +25,7 @@ require_once 'config/bdd.php';
             </li>
 
             <li>
-                <h3>lorem, lorem</h3>
+                <h3>$nom, $prenom</h3>
                 <a href="#" class="s_deco"><h3 class="s_deco">Deconnexion</h3></a>
             </li>
 
